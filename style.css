@@ -1,0 +1,71 @@
+body {
+    background: linear-gradient(215deg,#fff, #0ef, #1f293a, #000);
+    background-size: 900% 200%;
+    height: 90vh;
+    animation-name: animate;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+.StartButton {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.StartButton button {
+    font-size: 50px;
+    padding: 40px 70px;
+    background: linear-gradient(215deg,#fff, #0ef, #1f293a, #000);
+    background-size: 600% 150%;
+    height: 90vh;
+    animation-name: animate;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+}
+
+
+@keyframes animate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
