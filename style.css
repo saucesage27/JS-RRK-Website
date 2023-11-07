@@ -27,6 +27,7 @@ body {
     animation-duration: 10s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border: none;

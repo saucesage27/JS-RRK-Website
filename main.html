@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="calculator.css">
     <script src="script.js"></script>
+
 </head>
 <body>
     <div class="buttoncontainer">
@@ -14,32 +18,91 @@
     </div>
     <div class="container" id="container" style="display: none;">
         <div class="login-box">
-            <form action="#">
+            <form id="#">
                 <div class="page-box">
                     <div class="login-title">
                         <h2>Welcome to our Website!</h2>
                         <p>Please fill up this form to use our platform</p>
                     </div>
 
-                   <div class="page ">
+                   <div class="page firstname">
                         <div class="input-box">
-                            <input type="text" class="email" autofocus>
+                            <input type="text" id="firstname" autofocus required>
                             <label>Enter your First Name</label>
                         </div>
                     </div>
                     <div class="page lastname">
                         <div class="input-box">
-                            <input type="text" class="email" autofocus>
+                            <input type="text" id="lastname" autofocus required>
                             <label>Enter your Last Name</label>
                         </div>
                     </div>
                     <div class="page age">
                         <div class="input-box">
-                            <input type="text" class="email" autofocus>
+                            <input type="text" id="age" autofocus required>
                             <label>Enter your Age</label>
                         </div>
                     </div>
                     <button type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <div class="greeting" id="greeting"></div>
+            <script>
+                    const firstName1 = document.getElementById("firstname");
+                    const lastName1 = document.getElementById("lastname");
+                    const age1 = document.getElementById("age");
+                    const button2 = document.getElementById("submit");
+                    const greeting1 = document.getElementById("greeting");
+
+                    function msg() {
+                    greeting1.innerHTML = txt.value;
+                    }
+
+                    button2.addEventListener('click, greeting1');
+
+function displayNumber(value) {
+    var display = document.getElementById('display');
+    display.value = value;
+}
+            </script>
+        </div>
+    </div>
+    <div class="calcucontainer" id="calcucontainer" style="display: none;">
+        <div class="calculator">
+            <form>
+                <div class="display">
+                    <input type="text" name="display" id="display" value="">
+                </div>
+                <div>
+                    <input type="button" value="AC" id="clear">
+                    <input type="button" value="()" id="parenthesis">
+                    <input type="button" value="%" id="modulo">
+                    <input type="button" value="/" id="divide">
+                </div>
+                <div>
+                    <input type="button" value="7" id="number7">
+                    <input type="button" value="8" id="number8">
+                    <input type="button" value="9" id="number9">
+                    <input type="button" value="*" id="multiply">
+                </div>
+                <div>
+                    <input type="button" value="4" id="number4">
+                    <input type="button" value="5" id="number5">
+                    <input type="button" value="6" id="number6">
+                    <input type="button" value="-" id="minus">
+                </div>
+                <div>
+                    <input type="button" value="1" id="number1">
+                    <input type="button" value="2" id="number2">
+                    <input type="button" value="3" id="number3">
+                    <input type="button" value="+" id="plus">
+                </div>
+                <div>
+                    <input type="button" value="0" id="number0">
+                    <input type="button" value="00" id="number00">
+                    <input type="button" value="." id="period">
+                    <input type="button" value="=" id="equals">
                 </div>
             </form>
         </div>
