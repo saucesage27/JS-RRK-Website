@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(215deg,#fff, #0ef, #1f293a, #000);
+    background-size: 900% 200%;
+    height: 90vh;
+    animation-name: animate;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.container {
+    position: relative;
+    width: 500px;
+    height: 530px;
+    background: linear-gradient(215deg, #000,#1f293a,#0ef,#fff);
+    background-size: 900% 200%;
+    animation-name: animate;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    padding: 20px;
+    border: 2px solid #0ef;
+    border-radius: 10px;
+}
+
+.container .login-box {
+    position: relative;
+    width: 100%;
+}
+
+.login-box .page-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-box .page {
+    width: 100%;
+}
+
+.page-box .page.firstname {
+    transform: translateX(0px);
+}
+
+.page-box .page.lastname {
+    transform: translateX(0px);
+}
+
+.page-box .page.age {
+    transform: translateX(0px);
+}
+
+.page-box .login-title {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.login-title h2 {
+    font-size: 32px;
+    line-height: 1.5;
+}
+
+.login-title p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.page .input-box {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid #2c4766;
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 16px;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    border-color: #0ef;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #fff;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: 1px;
+    left: 12px;
+    font-size: 13px;
+    color: #0ef;
+    background: #1f293a;
+    padding: 0 6px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+p {
+    text-align: center;
+    color: #fff;
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+@keyframes animate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="login-box">
+            <form id="userForm">
+                <div class="page-box">
+                    <div class="login-title">
+                        <h2>Welcome to our Website!</h2>
+                        <p>Please fill up this form to use our platform</p>
+                    </div>
+                    <div class="page firstname">
+                        <div class="input-box">
+                            <input type="text" id="firstname" autofocus required>
+                            <label>Enter your First Name</label>
+                        </div>
+                    </div>
+                    <div class="page lastname">
+                        <div class="input-box">
+                            <input type="text" id="lastname" autofocus required>
+                            <label>Enter your Last Name</label>
+                        </div>
+                    </div>
+                    <div class="page age">
+                        <div class="input-box">
+                            <input type="text" id="age" autofocus required>
+                            <label>Enter your Age</label>
+                        </div>
+                    </div>
+                    <input type="button" id="btn" value="Submit">
+                </div>
+            </form>
+            <p class="output" id="output1"></p>
+        </div>
+    </div>
+    <script>
+        const btn1 = document.getElementById('btn');
+        const out1 = document.getElementById('output1');
+
+        btn1.addEventListener('click', msg);
+
+        function msg() {
+            while (true) {
+                const firstName = document.getElementById('firstname').value;
+                const lastName = document.getElementById('lastname').value;
+                const age = parseInt(document.getElementById('age').value);
+
+                if (firstName.trim() === '') {
+                    alert('Please enter your First Name.');
+                    return;
+                }
+                if (lastName.trim() === '') {
+                    alert('Please enter your Last Name.');
+                    return;
+                }
+                if (age === 0 || isNaN(age)) {
+                    alert('Please enter a valid age.');
+                    return;
+                }
+
+                const message = `Hello, ${firstName} ${lastName}! You are ${age} years old.`;
+                out1.textContent = message;
+                break; 
+            }
+        }
+    </script>
+</body>
+</html>
