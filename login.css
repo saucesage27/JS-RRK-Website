@@ -31,7 +31,7 @@ body {
     align-items: center;
     border-radius: 8px;
     padding: 0 45px;
-    animation: fadeIn 1s forwards;
+    animation: fadeIn 1s ease forwards;
     animation-delay: 2s;
     opacity: 0;
 }
