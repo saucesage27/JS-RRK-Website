@@ -49,7 +49,6 @@ body {
     outline: none;
 }
 
-/*keyframes*/
 @keyframes showRight {
     100% {
        width: 0;

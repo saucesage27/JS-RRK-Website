@@ -22,13 +22,21 @@ body {
 }
 
 .container {
+    background: linear-gradient(215deg, #000,#1f293a,#0ef,#fff);
+    background-size: 900% 200%;
+    animation-name: animate;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    border-radius: 10px;
     position: relative;
     width: 500px;
-    height: 530px;
+    height: 560px;
     border: 2px solid #0ef;
     display: flex;
     border-radius: 8px;
     padding: 0 45px;
+    margin-right: 20px;
 }
 
 .container .login-box {
@@ -125,3 +133,32 @@ button[type="submit"] {
     margin-top: 10px;
 }
 
+.submit-outside {
+    margin-top: 15px;
+    background: white;
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    cursor:pointer;
+    outline-offset: 4px;
+}
+
+.submit-inside {
+    background: #1f293a;
+    color: #fff;
+    border-color: #00eeff;
+    transition: .1s;
+    display: block;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    transform: translateY(-15px);
+}
+
+.submit-inside:hover {
+    color: gold;
+}
+
+.submit-inside:active {
+    transform: translateY(-2px);
+}

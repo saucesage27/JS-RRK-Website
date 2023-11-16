@@ -18,11 +18,11 @@
     </div>
     <div class="container" id="container" style="display: none;">
         <div class="login-box">
-            <form id="#">
+            <form id="userForm" onsubmit="confirmInput()" onreset="clearForm()">
                 <div class="page-box">
                     <div class="login-title">
                         <h2>Welcome to our Website!</h2>
-                        <p>Please fill up this form to use our platform</p>
+                        <p>Please fill up this form to be greeted</p>
                     </div>
 
                    <div class="page firstname">
@@ -43,10 +43,118 @@
                             <label>Enter your Age</label>
                         </div>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button class="submit-outside"><span class="submit-inside">Submit</span></button>
                 </div>
             </form>
         </div>
     </div>
+ <div class="calculator-container" id="calculator-container" style="display: none;">
+    <div class="output">
+        <div class="previous-operand"></div>
+        <div class="current-operand"></div>
+    </div>
+    <div class="calcucontainer" id="calcucontainer">
+        <div class="calculator">
+            <form>
+                <div class="display">
+                    <input type="text" name="display" id="display" value="">
+                </div>
+                <div>
+                    <input type="button" value="AC" id="clear">
+                    <input type="button" value="()" id="parenthesis">
+                    <input type="button" value="%" id="modulo">
+                    <input type="button" value="/" id="divide">
+                </div>
+                <div>
+                    <input type="button" value="7" id="number7">
+                    <input type="button" value="8" id="number8">
+                    <input type="button" value="9" id="number9">
+                    <input type="button" value="*" id="multiply">
+                </div>
+                <div>
+                    <input type="button" value="4" id="number4">
+                    <input type="button" value="5" id="number5">
+                    <input type="button" value="6" id="number6">
+                    <input type="button" value="-" id="minus">
+                </div>
+                <div>
+                    <input type="button" value="1" id="number1">
+                    <input type="button" value="2" id="number2">
+                    <input type="button" value="3" id="number3">
+                    <input type="button" value="+" id="plus">
+                </div>
+                <div>
+                    <input type="button" value="0" id="number0">
+                    <input type="button" value="00" id="number00">
+                    <input type="button" value="." id="period">
+                    <input type="button" value="=" id="equals">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function confirmInput() {
+            userFirstname = document.getElementById('firstname').value;
+            userLastname = document.getElementById('lastname').value;
+            userAge = document.getElementById('age').value;
+            alert("Hello " + userFirstname + " " + userLastname + ". You are " + userAge + " years old.");
+        }
+
+        function inputColor(element) {
+            element.style.background = "white";
+        }
+
+        function removeFocus(inputElement) {
+            inputElement.style.background = ""; 
+            inputElement.blur();
+        }
+
+        function clearForm() {
+            alert("The form has been cleared");
+        }
+    document.addEventListener("DOMContentLoaded", function() {
+        const display = document.getElementById('display');
+        const buttons = document.querySelectorAll('input[type="button"]');
+        let currentOperand = '';
+        let previousOperand = '';
+        let operator = '';
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => handleButtonClick(button.value));
+        });
+
+        function handleButtonClick(value) {
+            if (value === 'AC') {
+                clearCalculator();
+            } else if (value === '=') {
+                calculate();
+            } else {
+                updateDisplay(value);
+            }
+        }
+
+        function updateDisplay(value) {
+            currentOperand += value;
+            display.value = currentOperand;
+        }
+
+        function clearCalculator() {
+            currentOperand = '';
+            previousOperand = '';
+            operator = '';
+            display.value = '';
+        }
+
+        function calculate() {
+            if (currentOperand !== '') {
+                previousOperand = currentOperand;
+                currentOperand = eval(previousOperand);
+                display.value = currentOperand;
+            }
+        }
+    });
+
+    </script>
+</div>
 </body>
 </html>
